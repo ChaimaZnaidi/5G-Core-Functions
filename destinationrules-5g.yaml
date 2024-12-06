@@ -1,0 +1,43 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: amf-destination
+  namespace: nf-amf
+spec:
+  host: service-amf
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: nrf-destination
+  namespace: nf-nrf
+spec:
+  host: service-nrf
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: pcrf-destination
+  namespace: nf-pcrf
+spec:
+  host: service-pcrf
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: smf-destination
+  namespace: nf-smf
+spec:
+  host: service-smf
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL

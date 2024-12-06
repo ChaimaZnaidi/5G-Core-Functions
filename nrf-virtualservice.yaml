@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: nrf
+  namespace: istio-system
+spec:
+  gateways:
+  - 5g-gateway
+  hosts:
+  - '*'
+  http:
+  - match:
+      - uri:
+          prefix: /nrf
+    route:
+    - destination:
+        host: service-nrf.nf-nrf.svc.cluster.local
+        port:
+          number: 81

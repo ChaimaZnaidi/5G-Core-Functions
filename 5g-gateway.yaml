@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: 5g-gateway
+  namespace: istio-system
+spec:
+  selector:
+    istio: ingressgateway # Utilise l'Ingress Gateway d'Istio
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*" # Accepte tout le trafic entrant
